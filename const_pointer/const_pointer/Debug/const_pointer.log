@@ -1,0 +1,5 @@
+﻿  main.cpp
+D:\GitHube\JejudoGanda\const_pointer\const_pointer\CClass.h(4,2): warning C4091: 'static ': 변수를 선언하지 않으면 'CClass' 왼쪽은 무시됩니다.
+D:\GitHube\JejudoGanda\const_pointer\const_pointer\main.cpp(10,26): warning C4305: '초기화 중': '__int64'에서 'int'(으)로 잘립니다.
+D:\GitHube\JejudoGanda\const_pointer\const_pointer\main.cpp(10,15): warning C4309: '초기화 중': 상수 값이 잘립니다.
+  const_pointer.vcxproj -> D:\GitHube\JejudoGanda\const_pointer\Debug\const_pointer.exe
