@@ -13,6 +13,12 @@
     <ClCompile Include="Prototype_pattern.cpp">
       <Filter>00Prototype</Filter>
     </ClCompile>
+    <ClCompile Include="Singleton.cpp">
+      <Filter>00Prototype</Filter>
+    </ClCompile>
+    <ClCompile Include="State_pattern.cpp">
+      <Filter>00Prototype</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
