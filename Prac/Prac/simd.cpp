@@ -5,6 +5,7 @@
 #include<iostream>
 #include <time.h>
 #include <windows.h>
+#include <math.h>
 
 #include <time.h>
 
@@ -31,28 +32,38 @@ int main()
 	clock_t startTime, endTime;
 
 	double nProcessExcuteTime;
+	float k;
+	bool one = false;
 
 	__m128 pppp;
 	__m128 aaaa;
 	__m128 res;
+	__m128 mul_res;
 	startTime = clock(); /*현재 시각을 구한다.*/
-	for (int a = 0; a < 10000000; ++a) {
+	for (int a = 0; a < 100000000; ++a) {
 
 		pppp = _mm_load_ps(v1);
 		aaaa = _mm_load_ps(v2);
 		res = _mm_add_ps(pppp, aaaa);
+		mul_res = _mm_mul_ps(res, res);
 
-		_mm_store_ps(result, res);
+		_mm_store_ps(result, mul_res);
+		k = result[0] + result[1] + result[2] + result[3];
+		if (!one) {
+			cout << k << endl;
+			one = true;
+		}
 	}
+	one = false;
 	endTime = clock(); /*현재 시각을 구한다.*/
 	nProcessExcuteTime = ((double)(endTime - startTime)) / CLOCKS_PER_SEC;
 	printf("Excute time: %f\n", nProcessExcuteTime);
-
 	startTime = clock(); /*현재 시각을 구한다.*/
-	for (int a = 0; a < 10000000; ++a) {
-		for (int i = 0; i < 4; ++i)
-		{
-			zresult[i] = zv1[i] + zv2[i];
+	for (int a = 0; a < 100000000; ++a) {
+		k = powf(zv1[0] + zv2[0], 2) + powf(zv1[1] + zv2[1], 2) + powf(zv1[2] + zv2[2], 2) + powf(zv1[3] + zv2[3], 2);
+		if (!one) {
+			cout << k << endl;
+			one = true;
 		}
 	}
 	endTime = clock(); /*현재 시각을 구한다.*/
