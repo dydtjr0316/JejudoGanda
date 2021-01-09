@@ -41,7 +41,6 @@ int main()
 	__m128 mul_res;
 	startTime = clock(); /*현재 시각을 구한다.*/
 	for (int a = 0; a < 100000000; ++a) {
-
 		pppp = _mm_load_ps(v1);
 		aaaa = _mm_load_ps(v2);
 		res = _mm_add_ps(pppp, aaaa);
@@ -57,10 +56,16 @@ int main()
 	one = false;
 	endTime = clock(); /*현재 시각을 구한다.*/
 	nProcessExcuteTime = ((double)(endTime - startTime)) / CLOCKS_PER_SEC;
-	printf("Excute time: %f\n", nProcessExcuteTime);
+	printf("SIMD Excute time: %f\n", nProcessExcuteTime);
+
+
 	startTime = clock(); /*현재 시각을 구한다.*/
 	for (int a = 0; a < 100000000; ++a) {
-		k = powf(zv1[0] + zv2[0], 2) + powf(zv1[1] + zv2[1], 2) + powf(zv1[2] + zv2[2], 2) + powf(zv1[3] + zv2[3], 2);
+		//k = powf(zv1[0] + zv2[0], 2) + powf(zv1[1] + zv2[1], 2) + powf(zv1[2] + zv2[2], 2) + powf(zv1[3] + zv2[3], 2);
+		k = (zv1[0] + zv2[0]) * (zv1[0] + zv2[0]);
+		k += (zv1[1] + zv2[1]) * (zv1[1] + zv2[1]);
+		k += (zv1[2] + zv2[2]) * (zv1[2] + zv2[2]);
+		k += (zv1[3] + zv2[3]) * (zv1[3] + zv2[3]);
 		if (!one) {
 			cout << k << endl;
 			one = true;
@@ -68,6 +73,20 @@ int main()
 	}
 	endTime = clock(); /*현재 시각을 구한다.*/
 	nProcessExcuteTime = ((double)(endTime - startTime)) / CLOCKS_PER_SEC;
-	printf("Excute time: %f\n", nProcessExcuteTime);
+	printf("노말 Excute time: %f\n", nProcessExcuteTime);
+
+	startTime = clock(); /*현재 시각을 구한다.*/
+	for (int a = 0; a < 100000000; ++a) {
+		k = powf(zv1[0] + zv2[0], 2) + powf(zv1[1] + zv2[1], 2) + powf(zv1[2] + zv2[2], 2) + powf(zv1[3] + zv2[3], 2);
+
+		if (!one) {
+			cout << k << endl;
+			one = true;
+		}
+	}
+	endTime = clock(); /*현재 시각을 구한다.*/
+	nProcessExcuteTime = ((double)(endTime - startTime)) / CLOCKS_PER_SEC;
+	printf("시스템 함수 Excute time: %f\n", nProcessExcuteTime);
+
 	return 0;
 }
