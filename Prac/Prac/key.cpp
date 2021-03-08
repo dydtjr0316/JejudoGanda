@@ -2,26 +2,32 @@
 #include<vector>
 #include"tag.h"
 using namespace std;
-
-void pqcs(unsigned __int64 t) {
-	reinterpret_cast<unsigned __int64>
-};
-void gqcs(unsigned __int64* t)
-{
-
-}
+//
+//void pqcs(unsigned __int64 t) {
+//	reinterpret_cast<unsigned __int64>
+//};
+//void gqcs(unsigned __int64* t)
+//{
+//
+//}
+//
+//int main()
+//{
+//	int t[2];
+//	t[0] = 1;
+//	t[1] = 2;
+//
+//	pqcs(reinterpret_cast<unsigned __int64>(t));
+//
+//
+//	pqcs(*t);
+//
+//
+//	return 0;
+//}
 
 int main()
 {
-	int t[2];
-	t[0] = 1;
-	t[1] = 2;
-
-	pqcs(reinterpret_cast<unsigned __int64>(t));
-
-
-	pqcs(*t);
-
-
-	return 0;
+	if ((4096 & 4095) == 0)
+		cout << "0이라는데?" << endl;
 }
