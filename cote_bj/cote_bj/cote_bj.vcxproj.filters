@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="hash_lv2.cpp">
+    <ClCompile Include="sort_k.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="stack_1.cpp">
+    <ClCompile Include="stack_q_1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
