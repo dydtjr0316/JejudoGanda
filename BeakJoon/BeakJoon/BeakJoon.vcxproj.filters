@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="BeakJoon">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="BeakJoon\Lv3">
+      <UniqueIdentifier>{74e344ba-25f3-4730-abc4-2cadd9240192}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BeakJoon\Lv4">
+      <UniqueIdentifier>{685bf82a-3f98-4a1b-addb-d45a64a96431}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BeakJoon\Lv5">
+      <UniqueIdentifier>{0ff6ac15-7109-404f-9c06-ddad37d4c25b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BeakJoon\Lv6">
+      <UniqueIdentifier>{7fe0ae9b-4d89-4857-9693-7506bd962947}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BeakJoon\Lv7">
+      <UniqueIdentifier>{475fc11b-fdfb-4671-9111-390a55b79d0f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="lv3_prac1.cpp">
+      <Filter>BeakJoon\Lv3</Filter>
+    </ClCompile>
+    <ClCompile Include="lv3_prac2.cpp">
+      <Filter>BeakJoon\Lv3</Filter>
+    </ClCompile>
+    <ClCompile Include="lv3_prac3.cpp">
+      <Filter>BeakJoon\Lv3</Filter>
+    </ClCompile>
+    <ClCompile Include="00base.cpp">
+      <Filter>BeakJoon</Filter>
+    </ClCompile>
+    <ClCompile Include="lv3_prac4.cpp">
+      <Filter>BeakJoon\Lv3</Filter>
+    </ClCompile>
+    <ClCompile Include="lv3_prac5.cpp">
+      <Filter>BeakJoon\Lv3</Filter>
+    </ClCompile>
+    <ClCompile Include="lv3_prac6.cpp">
+      <Filter>BeakJoon\Lv3</Filter>
+    </ClCompile>
+    <ClCompile Include="lv3_prac7.cpp">
+      <Filter>BeakJoon\Lv3</Filter>
+    </ClCompile>
+    <ClCompile Include="lv3_prac9.cpp">
+      <Filter>BeakJoon\Lv3</Filter>
+    </ClCompile>
+    <ClCompile Include="lv3_prac10.cpp">
+      <Filter>BeakJoon\Lv3</Filter>
+    </ClCompile>
+    <ClCompile Include="lv3_prac11.cpp">
+      <Filter>BeakJoon\Lv3</Filter>
+    </ClCompile>
+    <ClCompile Include="lv4_prac1.cpp">
+      <Filter>BeakJoon\Lv4</Filter>
+    </ClCompile>
+    <ClCompile Include="lv4_prac2.cpp">
+      <Filter>BeakJoon\Lv4</Filter>
+    </ClCompile>
+    <ClCompile Include="lv4_prac3.cpp">
+      <Filter>BeakJoon\Lv4</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
