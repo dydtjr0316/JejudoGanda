@@ -93,5 +93,32 @@
     <ClCompile Include="lv5_prac7.cpp">
       <Filter>BeakJoon\Lv5</Filter>
     </ClCompile>
+    <ClCompile Include="lv6_prac1.cpp">
+      <Filter>BeakJoon\Lv6</Filter>
+    </ClCompile>
+    <ClCompile Include="lv6_prac2.cpp">
+      <Filter>BeakJoon\Lv6</Filter>
+    </ClCompile>
+    <ClCompile Include="lv6_prac3.cpp">
+      <Filter>BeakJoon\Lv6</Filter>
+    </ClCompile>
+    <ClCompile Include="lv7_prac3.cpp">
+      <Filter>BeakJoon\Lv7</Filter>
+    </ClCompile>
+    <ClCompile Include="lv7_parc4.cpp">
+      <Filter>BeakJoon\Lv7</Filter>
+    </ClCompile>
+    <ClCompile Include="lv7_prac5.cpp">
+      <Filter>BeakJoon\Lv7</Filter>
+    </ClCompile>
+    <ClCompile Include="lv7_prac6.cpp">
+      <Filter>BeakJoon\Lv7</Filter>
+    </ClCompile>
+    <ClCompile Include="lv7_prac7.cpp">
+      <Filter>BeakJoon\Lv7</Filter>
+    </ClCompile>
+    <ClCompile Include="lv7_prac8.cpp">
+      <Filter>BeakJoon\Lv7</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
