@@ -28,6 +28,12 @@
     <Filter Include="BeakJoon\Lv7">
       <UniqueIdentifier>{475fc11b-fdfb-4671-9111-390a55b79d0f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BeakJoon\lv8">
+      <UniqueIdentifier>{26030a44-e4e9-4434-b241-a62f5cbb2251}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BeakJoon\lv9">
+      <UniqueIdentifier>{56a728d2-68c1-4122-bd75-079a389e9421}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lv3_prac1.cpp">
@@ -119,6 +125,18 @@
     </ClCompile>
     <ClCompile Include="lv7_prac8.cpp">
       <Filter>BeakJoon\Lv7</Filter>
+    </ClCompile>
+    <ClCompile Include="lv7_prac9.cpp">
+      <Filter>BeakJoon\Lv7</Filter>
+    </ClCompile>
+    <ClCompile Include="lv7_prac10.cpp">
+      <Filter>BeakJoon\Lv7</Filter>
+    </ClCompile>
+    <ClCompile Include="lv8_prac01.cpp">
+      <Filter>BeakJoon\lv8</Filter>
+    </ClCompile>
+    <ClCompile Include="lv8_prac02.cpp">
+      <Filter>BeakJoon\lv8</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
