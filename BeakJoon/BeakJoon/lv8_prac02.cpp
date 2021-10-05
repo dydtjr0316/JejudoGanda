@@ -1,7 +1,8 @@
 #include<iostream>
 
 using namespace std;
-// 40분
+// 시간 초과\
+// 공식은 알아냈는데 효율적으로 바꾸는 작업을 못함
 int main(void) {
     int n;
     int cnt = 1;        
