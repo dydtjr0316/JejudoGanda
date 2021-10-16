@@ -1,0 +1,36 @@
+*****************************************프로그래머스 정렬 k번째수**********************************
+정답은 맞았는데 효율성 하타치인 이유
+1. 정렬할 때 sort보다 set에 넣는게 더 빠를거라고 생각해서 set에 넣은 개짓이 문제였음
+2. 애초에 vector를 잘라서 어디 넣고 이런짓이아니라 그냥 iter로 충분히 할 수 있는 거였음
+*************************************정답****************************************************
+vector<int> solution(vector<int> array, vector<vector<int>> commands) {
+    vector<int> answer;
+    vector<int> temp;
+
+    for (int i = 0; i < commands.size(); i++) {
+        temp = array;
+        sort(temp.begin() + commands[i][0] - 1, temp.begin() + commands[i][1]);
+        answer.push_back(temp[commands[i][0] + commands[i][2] - 2]);
+    }
+
+    return answer;
+}
+*******************************************************************************************
+*****************************************프로그래머스 정렬 k번째수**********************************
+정답은 맞았는데 효율성 하타치인 이유
+1. 정렬할 때 sort보다 set에 넣는게 더 빠를거라고 생각해서 set에 넣은 개짓이 문제였음
+2. 애초에 vector를 잘라서 어디 넣고 이런짓이아니라 그냥 iter로 충분히 할 수 있는 거였음
+*************************************정답****************************************************
+vector<int> solution(vector<int> array, vector<vector<int>> commands) {
+    vector<int> answer;
+    vector<int> temp;
+
+    for (int i = 0; i < commands.size(); i++) {
+        temp = array;
+        sort(temp.begin() + commands[i][0] - 1, temp.begin() + commands[i][1]);
+        answer.push_back(temp[commands[i][0] + commands[i][2] - 2]);
+    }
+
+    return answer;
+}
+*******************************************************************************************

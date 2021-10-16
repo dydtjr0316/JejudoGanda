@@ -1,0 +1,102 @@
+SELECT 컬럼명 FROM 테이블명
+
+정렬의 기준이 여러개 이면 
+ORDER BY 에 ,로 구분을 두고 여러개 정
+
+-------------------------------------------
+최대 최소 평균을 구하고 싶을때
+SELECT * FROM employee 
+WHERE salary = (SELECT max(salary) FROM employee);
+
+괄호 꼭 지켜야됨
+
+COUNT 시에 빈 데이터 블록이 있을수 있기때문에
+전체적인 갯수를 세기 위해선 *를 사용해야한다.
+------------------------------------------------
+
+중복을 제거하는 쿼리문
+DISTINCT의 경우에는 SELECT DISTINCT {컬럼명} FROM {테이블명} {조건절} 
+
+GROUP BY의 경우에는 SELECT {컬럼명} FROM {테이블명} {조건절} GROUP BY {테이블명}
+
+정렬이 필요하다면 GROUP BY를 사용한다
+
+예시
+SELECT COUNT(DISTINCT NAME) FROM ANIMAL_INS
+--------------------------------------------------
+HAVING절
+WHERE절에서는 집계함수를 사용할 수 없으므로
+HAVING절을 사용하여 조건 비교를 한다.
+HAVING절은 GROUP BY 절과 함께 사용된다.
+--------------------------------------------*-----
+시간 추출 함수
+YEAR : 연도 추출
+MONTH : 월 추출
+DAY : 일 추출 (DAYOFMONTH와 같은 함수)
+HOUR : 시 추출
+MINUTE : 분 추출
+SECOND : 초 추출
+
+입양시각 예시
+SELECT HOUR(DATETIME) AS HOUR, COUNT(DATETIME) 
+FROM ANIMAL_OUTS
+GROUP BY HOUR(DATETIME)
+HAVING HOUR >= 9 and HOUR <20
+ORDER BY HOUR(DATETIME) ASC
+
+1. HOUR함수를 사용해서 DATETIME의 시간을 추출하여 사용하고 DATETIME의 COUNT를 계산
+2. DATETIME의 HOUR를 그룹으로 묶은 뒤 9~20사이의 시간을 오름차순으로 정렬
+----------------------------------------------------
+@
+@는 변수를 뜻한다 순차접근시에 유용하게 쓰인다.
+----입양시각2---- 분석하기
+
+SET @HOUR = -1;
+SELECT (@HOUR := @HOUR +1) AS HOUR,
+    (
+        SELECT COUNT(HOUR(DATETIME)) 
+        FROM ANIMAL_OUTS 
+        WHERE HOUR(DATETIME)=@HOUR
+    ) AS COUNT 
+FROM ANIMAL_OUTS
+WHERE @HOUR < 23;
+
+// 변수 HOUR을 선언하고 -1로 초기화 해준다
+// 결과의 HOUR는 변수 HOUR를 1씩 증가하며 열값으로
+
+// 두번째 행에서는
+괄호안의 구문이 사용되는데 AS COUNT이기에 행은 COUNT로 설정되고
+시간별로 COUNT가 계산되는데 변수 HOUR와 
+DATETIME에서 추출한 HOUR가 같을 때를 계산해 준다
+마지막 줄은 변수 HOUR가 23보다 작을 때 까지하라는말
+-----------------------------------------------------
+JOIN
+-- 코드를 입력하세요
+SELECT
+    OUTS.ANIMAL_ID, OUTS.NAME 
+FROM ANIMAL_OUTS AS OUTS
+    LEFT OUTER JOIN ANIMAL_INS AS INS
+    ON OUTS.ANIMAL_ID = INS.ANIMAL_ID
+WHERE
+    INS.ANIMAL_ID IS NULL
+
+아이디를 기준으로 
+IN에 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
