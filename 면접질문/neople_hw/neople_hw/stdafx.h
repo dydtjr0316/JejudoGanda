@@ -17,7 +17,7 @@ using namespace std;
 #define SLOT_ADD2 64
 
 
-enum INVEN_TYPE
+enum class INVEN_TYPE
 {
 	EQUIPMENT,		//장	비
 	EXPENDABLES,	//소모품
