@@ -12,6 +12,7 @@ void CInventory::InitItem(CItem* item, const uint16_t& addCount)
 {
 	INVEN_TYPE eItemType = item->GetType();
 	float ResultWeight = m_fInvenWeight + item->GetWeight();
+	// 이렇게 선언해놓고 쓰는거 어떤지 
 	switch (eItemType)
 	{
 	case INVEN_TYPE::EQUIPMENT:
@@ -64,7 +65,7 @@ void CInventory::InitItem(CItem* item, const uint16_t& addCount)
 		}
 		break;
 	}
-	// 이렇게 선언해놓고 쓰는거 어떤지 
+	
 	
 }
 

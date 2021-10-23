@@ -42,3 +42,11 @@ enum class RARITY
 {
 	ENTIRE, COM, UNCOM, RARE, UNIQ, REGENDARY, EPIC, END
 };
+enum class SORTING_TYPE
+{
+	ENHANCE, SMELTING, NAME, LV, TIMECOUNT, GOLD, IDLE
+};
+enum class SORTING_ORDER
+{
+	IDLE, ASC/*오름*/, DESC/*내림*/
+};
