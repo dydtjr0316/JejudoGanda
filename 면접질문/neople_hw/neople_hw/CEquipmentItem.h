@@ -1,6 +1,6 @@
 #pragma once
 #include "CItem.h"
-class CEquipment :
+class CEquipmentItem :
     public CItem
 {
 private: // bool º¯¼ö

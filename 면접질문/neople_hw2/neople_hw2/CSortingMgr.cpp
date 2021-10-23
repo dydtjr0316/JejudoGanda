@@ -5,7 +5,7 @@ bool cmp(CItem* a, CItem* b)
 	
 }
 
-bool CSortingMgr::IdleCompare(CItem* a, CItem* b)
+bool CSortingMgr::IdleCmp(CItem* a, CItem* b)
 {
 	uint16_t a_Enhance = a->GetEnhance();
 	uint16_t b_Enhance = b->GetEnhance();

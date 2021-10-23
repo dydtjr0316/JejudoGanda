@@ -36,11 +36,11 @@
     <ClCompile Include="CItem.cpp">
       <Filter>02Item</Filter>
     </ClCompile>
-    <ClCompile Include="CEquipment.cpp">
-      <Filter>02Item\00Equipment</Filter>
-    </ClCompile>
-    <ClCompile Include="CExpendables.cpp">
+    <ClCompile Include="CExpendablItem.cpp">
       <Filter>02Item\01Expendables</Filter>
+    </ClCompile>
+    <ClCompile Include="CEquipmentItem.cpp">
+      <Filter>02Item\00Equipment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -53,11 +53,11 @@
     <ClInclude Include="stdafx.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CEquipment.h">
-      <Filter>02Item\00Equipment</Filter>
-    </ClInclude>
-    <ClInclude Include="CExpendables.h">
+    <ClInclude Include="CExpendablItem.h">
       <Filter>02Item\01Expendables</Filter>
+    </ClInclude>
+    <ClInclude Include="CEquipmentItem.h">
+      <Filter>02Item\00Equipment</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
