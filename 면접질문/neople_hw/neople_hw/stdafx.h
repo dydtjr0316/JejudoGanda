@@ -5,12 +5,18 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <deque>
+#include <random>
 
 using namespace std;
 
 #define MAX_LAYER 5
 #define MAX_EQUIP 13
-#define MAX_SLOT 48
+
+#define SLOT_IDLE 48
+#define SLOT_ADD1 56
+#define SLOT_ADD2 64
+
+
 enum INVEN_TYPE
 {
 	EQUIPMENT,		//¿Â	∫Ò
@@ -36,3 +42,8 @@ enum EQUIP
 	EARRING,
 	MAGINSTONE
 };
+
+enum class EXCHANGE_TYPE{IDLE, UNEXC, UNEXC_DEL, ATTRIBUTION };
+enum class RARITY_TYPE{COM, UNCOM, RARE, UNIQ, REGEND, EPIC};
+enum class EQUIPMENT_TYPE { A,B,C,D,E }; 
+enum class OCCUPATION_TYPE{A,B,C,D,E,F,G };

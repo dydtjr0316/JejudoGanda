@@ -1,5 +1,2 @@
 #include "stdafx.h"
-
-int main()
-{
-}
+#include "CItem.h"

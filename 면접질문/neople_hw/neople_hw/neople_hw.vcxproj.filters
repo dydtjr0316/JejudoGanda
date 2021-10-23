@@ -19,20 +19,11 @@
     <Filter Include="02Item">
       <UniqueIdentifier>{e0774a65-f9ce-4287-91ea-8720b5ba23d5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02Item\04QuestMaterial">
-      <UniqueIdentifier>{01e534db-d00d-40ca-925a-ebdf8d3f5646}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02Item\00Equipment">
       <UniqueIdentifier>{1b12c692-479c-4fe6-9c0d-26db486fc05c}</UniqueIdentifier>
     </Filter>
     <Filter Include="02Item\01Expendables">
       <UniqueIdentifier>{9f005084-a963-46a2-9fed-9aae42089976}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02Item\02Material">
-      <UniqueIdentifier>{a890be34-024c-4e1c-a755-c1e032418b0c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02Item\03SpecialtyMaterial">
-      <UniqueIdentifier>{6e846a9b-56f7-4b02-94df-38ee38e950f3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -45,6 +36,12 @@
     <ClCompile Include="CItem.cpp">
       <Filter>02Item</Filter>
     </ClCompile>
+    <ClCompile Include="CEquipment.cpp">
+      <Filter>02Item\00Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="CExpendables.cpp">
+      <Filter>02Item\01Expendables</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CInventory.h">
@@ -55,6 +52,12 @@
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CEquipment.h">
+      <Filter>02Item\00Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="CExpendables.h">
+      <Filter>02Item\01Expendables</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

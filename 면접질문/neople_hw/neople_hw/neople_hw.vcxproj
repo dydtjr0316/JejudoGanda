@@ -139,11 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CEquipment.cpp" />
+    <ClCompile Include="CExpendables.cpp" />
     <ClCompile Include="CInventory.cpp" />
     <ClCompile Include="CItem.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CEquipment.h" />
+    <ClInclude Include="CExpendables.h" />
     <ClInclude Include="CInventory.h" />
     <ClInclude Include="CItem.h" />
     <ClInclude Include="stdafx.h" />
