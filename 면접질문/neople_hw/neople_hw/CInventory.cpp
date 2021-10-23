@@ -2,9 +2,9 @@
 #include "CItem.h"
 #include "CInventory.h"
 
-void CInventory::InitItem(CItem& item)
+void CInventory::InitItem(CItem* item)
 {
-	m_InvenLst[item.GetType()].emplace_back(item);
+	m_InvenLst[item->GetType()].emplace_back(item);
 }
 
 void CInventory::DeleteItem(CItem* item)
