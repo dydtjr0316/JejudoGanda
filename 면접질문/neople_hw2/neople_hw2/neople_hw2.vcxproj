@@ -139,15 +139,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CAcc.cpp" />
+    <ClCompile Include="CArmor.cpp" />
     <ClCompile Include="CItem.cpp" />
     <ClCompile Include="CSortingMgr.cpp" />
     <ClCompile Include="CStore.cpp" />
+    <ClCompile Include="CWeapon.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CAcc.h" />
+    <ClInclude Include="CArmor.h" />
     <ClInclude Include="CItem.h" />
+    <ClInclude Include="compare.h" />
     <ClInclude Include="CSortingMgr.h" />
     <ClInclude Include="CStore.h" />
+    <ClInclude Include="CWeapon.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

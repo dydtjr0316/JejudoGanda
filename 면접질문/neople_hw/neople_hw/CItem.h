@@ -2,17 +2,18 @@
 class CItem
 {
 public:
+	CItem(const INVEN_TYPE& type, const float& weight, const string& name) { m_eType = type, m_fWeight = weight, m_sName = name; }
 	virtual ~CItem() {};
-private:		//정수
+protected:		//정수
 	string			m_sName = "";
 	int16_t			m_usLevelLimit;
 	uint32_t		m_uiItemType;	// string을 사용하면 unordered_map의 서치 효율이 떨어진다.
 	// 어떤 종류의 아이템인가 ex) 롱소드 = 1, 롱소드 +1 = 1
 	
-private:		//실수
+protected:		//실수
 	float			m_fWeight;
 
-private:		// enum
+protected:		// enum
 	INVEN_TYPE		m_eType;
 	EXCHANGE_TYPE	m_eExchangeType;
 

@@ -2,10 +2,12 @@
 #include "CItem.h"
 #include "CInventory.h"
 #include "CExpendablItem.h"
+#include "CEquipmentItem.h"
 
 CInventory::CInventory()
 {
-	m_vItemLst->resize(SLOT_IDLE);
+	for(int i = 0;i<MAX_LAYER;++i)
+		m_vItemLst[i].resize(SLOT_IDLE);
 }
 
 void CInventory::InitItem(CItem* item, const uint16_t& addCount)
@@ -24,6 +26,7 @@ void CInventory::InitItem(CItem* item, const uint16_t& addCount)
 				if (m_vItemLst[(short)eItemType][index] == nullptr)
 				{
 					m_vItemLst[(short)eItemType][index] = item;
+					break;
 				}
 			}
 			m_fInvenWeight = ResultWeight;
@@ -37,7 +40,7 @@ void CInventory::InitItem(CItem* item, const uint16_t& addCount)
 		{
 			for (int index = 0; index < m_usMaxSlotSize; ++index)
 			{
-				if (m_vItemLst[(short)eItemType][index]->GetName() == item->GetName())
+				if (m_vItemLst[(short)eItemType][index]!=nullptr&&m_vItemLst[(short)eItemType][index]->GetName() == item->GetName())
 				{
 					bisExist = true;
 					existIndex = index;
@@ -57,6 +60,7 @@ void CInventory::InitItem(CItem* item, const uint16_t& addCount)
 					if (m_vItemLst[(short)eItemType][index] == nullptr)
 					{
 						m_vItemLst[(short)eItemType][index] = item;
+						break;
 					}
 				}
 				m_fInvenWeight = ResultWeight;
@@ -98,5 +102,45 @@ void CInventory::DeleteItem(const uint16_t& slotindex, const uint16_t& deleteCou
 	}
 	m_fInvenWeight -= item->GetWeight();
 
+}
+
+void CInventory::PrintAll()
+{
+	for (int i = 0; i < 2; ++i)
+	{
+		cout << "-------------------------------" << endl;
+		switch (i)
+		{
+		case 0: cout << "장비" << endl;
+			cout << "이름\t무게" << endl;
+			for (auto obj : m_vItemLst[i])
+			{
+				if (obj != nullptr)
+				{
+					cout << (obj)->GetName() << endl;
+					/*cout << dynamic_cast<CEquipmentItem*>(obj)->GetName() << "\t"
+						<< dynamic_cast<CEquipmentItem*>(obj)->GetWeight() << "\t" << endl;*/
+				}
+			}
+			break;
+		case 1: cout << "소모품" << endl;
+			cout << "이름\t갯수\t무게" << endl;
+			for (auto obj : m_vItemLst[i])
+			{
+				if (obj != nullptr)
+				{
+					cout << (obj)->GetName() << endl;
+				}
+				//cout << dynamic_cast<CExpendablItem*>(obj)->GetName() << "\t"
+				//	<< dynamic_cast<CExpendablItem*>(obj)->GetItemCount() << "\t"
+				//	/*<< dynamic_cast<CExpendablItem*>(obj)->GetWeight() << "\t" */<< endl;
+			}
+
+		default:
+			break;
+		}
+		cout << "-------------------------------" << endl;
+
+	}
 }
 

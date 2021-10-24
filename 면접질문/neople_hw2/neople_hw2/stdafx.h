@@ -10,41 +10,88 @@
 #include <chrono>
 using namespace std;
 using namespace std::chrono;
-enum class TYPE
+
+#define RAND100000 rand()%100000
+#define RAND100 rand()%100
+#define RAND10 rand()%10
+
+enum class ITEM_A_TYPE
 {
-	WEAPON, ARMOR, ACC, SPECIAL_EQUIP
+	WEAPON, 
+
+	ARMOR, 
+
+	ACC, 
 };
-enum class WEAPON_TYPE
+enum class ITEM_B_TYPE
 {
-	A, B, C, D, E, F, G
+	WEAPON_DARKKNIGHT,
+
+	ARMOR_LEATHER,
+
+	ACC_NECK, ACC_RING
 };
-enum class WEAPON_A_TYPE
+enum class ITEM_C_TYPE
 {
-	A, B, C, D, E, F, G
+	WEAPON_DARKKNIGHT_SWORD, WEAPON_DARKKNIGHT_KNIFE,
+
+	ARMOR_LEATHER_SHIRT, ARMOR_LEATHER_SHOES,
 };
-enum class WEAPON_B_TYPE
-{
-	A, B, C, D, E, F, G
-};
-enum class ARMOR_TYPE
-{
-	A, B, C, D, E, F, G
-};
-enum class ACC_TYPE
-{
-	A, B, C, D, E, F, G
-};
-enum class SPECIAL_EQUIP_TYPE
-{
-	A, B, C, D, E, F, G
-};
+//enum class WEAPON_TYPE
+//{
+//	A, B, C, D, E
+//};
+//enum class WEAPON_A_TYPE
+//{
+//	A, B, C, D, E
+//};
+//enum class WEAPON_B_TYPE
+//{
+//	A, B, C, D, E
+//};
+//enum class ARMOR_TYPE
+//{
+//	A, B, C, D, E
+//};
+//enum class ARMOR_A_TYPE
+//{
+//	A, B, C, D, E
+//};
+//enum class ARMOR_B_TYPE
+//{
+//	A, B, C, D, E
+//};
+//enum class ACC_TYPE
+//{
+//	A, B, C, D, E
+//};
+//enum class ACC_A_TYPE
+//{
+//	A, B, C, D, E
+//};
+//enum class ACC_B_TYPE
+//{
+//	A, B, C, D, E
+//};
+//enum class SPECIAL_EQUIP_TYPE
+//{
+//	A, B, C, D, E
+//};
+//enum class SPECIAL_EQUIP_A_TYPE
+//{
+//	A, B, C, D, E
+//};
+//enum class SPECIAL_EQUIP_B_TYPE
+//{
+//	A, B, C, D, E
+//};
 enum class RARITY
 {
 	ENTIRE, COM, UNCOM, RARE, UNIQ, REGENDARY, EPIC, END
 };
 enum class SORTING_TYPE
 {
-	ENHANCE, SMELTING, NAME, LV, TIMECOUNT, GOLD, IDLE
+	ENHANCE, SMELTING, NAME, LV, TIMECOUNT, Price, IDLE
 };
 enum class SORTING_ORDER
 {
