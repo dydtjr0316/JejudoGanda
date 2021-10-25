@@ -141,6 +141,8 @@
   <ItemGroup>
     <ClCompile Include="CAcc.cpp" />
     <ClCompile Include="CArmor.cpp" />
+    <ClCompile Include="CEquipmentItem.cpp" />
+    <ClCompile Include="CExpendableItem.cpp" />
     <ClCompile Include="CItem.cpp" />
     <ClCompile Include="CSortingMgr.cpp" />
     <ClCompile Include="CStore.cpp" />
@@ -150,6 +152,8 @@
   <ItemGroup>
     <ClInclude Include="CAcc.h" />
     <ClInclude Include="CArmor.h" />
+    <ClInclude Include="CEquipmentItem.h" />
+    <ClInclude Include="CExpendableItem.h" />
     <ClInclude Include="CItem.h" />
     <ClInclude Include="compare.h" />
     <ClInclude Include="CSortingMgr.h" />

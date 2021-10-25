@@ -7,21 +7,26 @@
 #include <map>
 #include <algorithm>
 #include <deque>
+#include <string>
 #include <chrono>
+#include <iomanip>
 using namespace std;
 using namespace std::chrono;
 
 #define RAND100000 rand()%100000
 #define RAND100 rand()%100
 #define RAND10 rand()%10
+enum class ITEM_TYPE
+{
+	EQUIP,EXPENDABLE, END
+};
 
 enum class ITEM_A_TYPE
 {
 	WEAPON, 
-
 	ARMOR, 
-
-	ACC, 
+	ACC,
+	END
 };
 enum class ITEM_B_TYPE
 {
@@ -30,68 +35,24 @@ enum class ITEM_B_TYPE
 	ARMOR_LEATHER,
 
 	ACC_NECK, ACC_RING
+	
+	, END
 };
 enum class ITEM_C_TYPE
 {
 	WEAPON_DARKKNIGHT_SWORD, WEAPON_DARKKNIGHT_KNIFE,
 
 	ARMOR_LEATHER_SHIRT, ARMOR_LEATHER_SHOES,
+
+	END
 };
-//enum class WEAPON_TYPE
-//{
-//	A, B, C, D, E
-//};
-//enum class WEAPON_A_TYPE
-//{
-//	A, B, C, D, E
-//};
-//enum class WEAPON_B_TYPE
-//{
-//	A, B, C, D, E
-//};
-//enum class ARMOR_TYPE
-//{
-//	A, B, C, D, E
-//};
-//enum class ARMOR_A_TYPE
-//{
-//	A, B, C, D, E
-//};
-//enum class ARMOR_B_TYPE
-//{
-//	A, B, C, D, E
-//};
-//enum class ACC_TYPE
-//{
-//	A, B, C, D, E
-//};
-//enum class ACC_A_TYPE
-//{
-//	A, B, C, D, E
-//};
-//enum class ACC_B_TYPE
-//{
-//	A, B, C, D, E
-//};
-//enum class SPECIAL_EQUIP_TYPE
-//{
-//	A, B, C, D, E
-//};
-//enum class SPECIAL_EQUIP_A_TYPE
-//{
-//	A, B, C, D, E
-//};
-//enum class SPECIAL_EQUIP_B_TYPE
-//{
-//	A, B, C, D, E
-//};
 enum class RARITY
 {
 	ENTIRE, COM, UNCOM, RARE, UNIQ, REGENDARY, EPIC, END
 };
 enum class SORTING_TYPE
 {
-	ENHANCE, SMELTING, NAME, LV, TIMECOUNT, Price, IDLE
+	ENHANCE, SMELTING, NAME, LV, TIMECOUNT, Price, IDLE,  END
 };
 enum class SORTING_ORDER
 {

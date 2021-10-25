@@ -23,9 +23,9 @@ void CInventory::InitItem(CItem* item, const uint16_t& addCount)
 			for (int index = 0; index < m_usMaxSlotSize; ++index)
 			{
 				// 형변환 short로 하는거 어떤지 물어보기 
-				if (m_vItemLst[(short)eItemType][index] == nullptr)
+				if (m_vItemLst[(uint32_t)eItemType][index] == nullptr)
 				{
-					m_vItemLst[(short)eItemType][index] = item;
+					m_vItemLst[(uint32_t)eItemType][index] = item;
 					break;
 				}
 			}
@@ -40,7 +40,7 @@ void CInventory::InitItem(CItem* item, const uint16_t& addCount)
 		{
 			for (int index = 0; index < m_usMaxSlotSize; ++index)
 			{
-				if (m_vItemLst[(short)eItemType][index]!=nullptr&&m_vItemLst[(short)eItemType][index]->GetName() == item->GetName())
+				if (m_vItemLst[(uint32_t)eItemType][index]!=nullptr&&m_vItemLst[(uint32_t)eItemType][index]->GetName() == item->GetName())
 				{
 					bisExist = true;
 					existIndex = index;
@@ -49,17 +49,17 @@ void CInventory::InitItem(CItem* item, const uint16_t& addCount)
 			}
 			if (bisExist)
 			{
-				int16_t count = dynamic_cast<CExpendablItem*>(m_vItemLst[(short)eItemType][existIndex])->GetItemCount()+ addCount;
-				dynamic_cast<CExpendablItem*>(m_vItemLst[(short)eItemType][existIndex])->SetItemCount(count);
+				int16_t count = dynamic_cast<CExpendablItem*>(m_vItemLst[(uint32_t)eItemType][existIndex])->GetItemCount()+ addCount;
+				dynamic_cast<CExpendablItem*>(m_vItemLst[(uint32_t)eItemType][existIndex])->SetItemCount(count);
 			}
 			else
 			{
 				for (int index = 0; index < m_usMaxSlotSize; ++index)
 				{
 					// 형변환 short로 하는거 어떤지 물어보기 
-					if (m_vItemLst[(short)eItemType][index] == nullptr)
+					if (m_vItemLst[(uint32_t)eItemType][index] == nullptr)
 					{
-						m_vItemLst[(short)eItemType][index] = item;
+						m_vItemLst[(uint32_t)eItemType][index] = item;
 						break;
 					}
 				}
@@ -77,30 +77,31 @@ void CInventory::DeleteItem(const uint16_t& slotindex, const uint16_t& deleteCou
 // item으로 delete해야되는 경우 있는지 찾아보기
 // 갯수로 삭제 넣기
 {
-	CItem* item = m_vItemLst[(short)m_eCurInvenType][slotindex];
-	INVEN_TYPE eItemType = item->GetType();
-	float ResultWeight = m_fInvenWeight + item->GetWeight();
+	// 이 아이템 코드 nullptr 만드는 코드
+	INVEN_TYPE eItemType = m_vItemLst[(uint32_t)m_eCurInvenType][slotindex]->GetType();
+	float ResultWeight = m_fInvenWeight + m_vItemLst[(uint32_t)m_eCurInvenType][slotindex]->GetWeight();
+	m_fInvenWeight -= m_vItemLst[(uint32_t)m_eCurInvenType][slotindex]->GetWeight();
+
 	switch (m_eCurInvenType)
 	{
 	case INVEN_TYPE::EQUIPMENT:
-		item = nullptr;
+		m_vItemLst[(uint32_t)m_eCurInvenType][slotindex] = nullptr;
 		--m_usCurItemCount;
 		break;
 	case INVEN_TYPE::EXPENDABLES:
-		CExpendablItem* expendableiTem = dynamic_cast<CExpendablItem*>(item);
+		CExpendablItem* expendableiTem = dynamic_cast<CExpendablItem*>(m_vItemLst[(short)m_eCurInvenType][slotindex]);
 		if (expendableiTem->GetItemCount() - deleteCount > 0)
 		{	// 갯수만큼 빼도 0보다 클때
 			expendableiTem->SetItemCount(expendableiTem->GetItemCount() - deleteCount);
 		}
 		else// 0이될때
 		{
-			item = nullptr;
+			m_vItemLst[(uint32_t)m_eCurInvenType][slotindex] = nullptr;
 			--m_usCurItemCount;	// 이부분 상황봐서 합쳐버리기
 		}
 	
 		break;
 	}
-	m_fInvenWeight -= item->GetWeight();
 
 }
 
@@ -112,28 +113,31 @@ void CInventory::PrintAll()
 		switch (i)
 		{
 		case 0: cout << "장비" << endl;
-			cout << "이름\t무게" << endl;
+			cout << "-------------------------------" << endl;
+			cout <<left <<setw(15)<<"이름"<<"무게" << endl;
+			cout << "-------------------------------" << endl;
 			for (auto obj : m_vItemLst[i])
 			{
 				if (obj != nullptr)
 				{
-					cout << (obj)->GetName() << endl;
-					/*cout << dynamic_cast<CEquipmentItem*>(obj)->GetName() << "\t"
-						<< dynamic_cast<CEquipmentItem*>(obj)->GetWeight() << "\t" << endl;*/
+					cout << left << setw(15)<< (obj)->GetName() << "\t"
+						<<(obj)->GetWeight() << "kg\t" << endl;
 				}
 			}
 			break;
 		case 1: cout << "소모품" << endl;
-			cout << "이름\t갯수\t무게" << endl;
+			cout << "-------------------------------" << endl;
+			cout << left << setw(15) << "이름" << "개수\t무게" << endl;
+			cout << "-------------------------------" << endl;
 			for (auto obj : m_vItemLst[i])
 			{
 				if (obj != nullptr)
 				{
-					cout << (obj)->GetName() << endl;
+					cout << left << setw(15) << (obj)->GetName() << "\t"
+						<< dynamic_cast<CExpendablItem*>(obj)->GetItemCount() << "\t"
+						<< obj->GetWeight() << "kg\t"  << endl;
 				}
-				//cout << dynamic_cast<CExpendablItem*>(obj)->GetName() << "\t"
-				//	<< dynamic_cast<CExpendablItem*>(obj)->GetItemCount() << "\t"
-				//	/*<< dynamic_cast<CExpendablItem*>(obj)->GetWeight() << "\t" */<< endl;
+				
 			}
 
 		default:

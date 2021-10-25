@@ -11,15 +11,6 @@
     <Filter Include="00item">
       <UniqueIdentifier>{a0ae1251-a64e-49e8-819a-815fd990014f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="00item\00Weapon">
-      <UniqueIdentifier>{4875def6-955b-4284-ad31-6c0f9978770a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00item\01Armor">
-      <UniqueIdentifier>{1a5bc14b-a769-43bf-8471-12a91602b46a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00item\02Acc">
-      <UniqueIdentifier>{18894cb6-dfde-43f3-b3b9-c10f98548eef}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01Store">
       <UniqueIdentifier>{5fe52df1-9569-4e47-8df0-97af3a1f1dc1}</UniqueIdentifier>
     </Filter>
@@ -30,6 +21,21 @@
     <Filter Include="99Etc">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="00item\00EquipmentItem">
+      <UniqueIdentifier>{7e9a2701-4ecf-4eaa-ad7f-27bd4a6b9814}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00item\00EquipmentItem\00Weapon">
+      <UniqueIdentifier>{4875def6-955b-4284-ad31-6c0f9978770a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00item\00EquipmentItem\01Armor">
+      <UniqueIdentifier>{1a5bc14b-a769-43bf-8471-12a91602b46a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00item\00EquipmentItem\02Acc">
+      <UniqueIdentifier>{18894cb6-dfde-43f3-b3b9-c10f98548eef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00item\01ExpendableItem">
+      <UniqueIdentifier>{e4064c49-0b04-4ca0-be3f-93b38796958b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,13 +52,19 @@
       <Filter>Manager</Filter>
     </ClCompile>
     <ClCompile Include="CWeapon.cpp">
-      <Filter>00item\00Weapon</Filter>
+      <Filter>00item\00EquipmentItem\00Weapon</Filter>
     </ClCompile>
     <ClCompile Include="CAcc.cpp">
-      <Filter>00item\02Acc</Filter>
+      <Filter>00item\00EquipmentItem\02Acc</Filter>
     </ClCompile>
     <ClCompile Include="CArmor.cpp">
-      <Filter>00item\01Armor</Filter>
+      <Filter>00item\00EquipmentItem\01Armor</Filter>
+    </ClCompile>
+    <ClCompile Include="CEquipmentItem.cpp">
+      <Filter>00item\00EquipmentItem</Filter>
+    </ClCompile>
+    <ClCompile Include="CExpendableItem.cpp">
+      <Filter>00item\01ExpendableItem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -72,13 +84,19 @@
       <Filter>99Etc</Filter>
     </ClInclude>
     <ClInclude Include="CWeapon.h">
-      <Filter>00item\00Weapon</Filter>
+      <Filter>00item\00EquipmentItem\00Weapon</Filter>
     </ClInclude>
     <ClInclude Include="CAcc.h">
-      <Filter>00item\02Acc</Filter>
+      <Filter>00item\00EquipmentItem\02Acc</Filter>
     </ClInclude>
     <ClInclude Include="CArmor.h">
-      <Filter>00item\01Armor</Filter>
+      <Filter>00item\00EquipmentItem\01Armor</Filter>
+    </ClInclude>
+    <ClInclude Include="CEquipmentItem.h">
+      <Filter>00item\00EquipmentItem</Filter>
+    </ClInclude>
+    <ClInclude Include="CExpendableItem.h">
+      <Filter>00item\01ExpendableItem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

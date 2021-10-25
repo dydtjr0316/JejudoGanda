@@ -6,7 +6,6 @@
 #include "CStore.h"
 #include "CSortingMgr.h"
 #include "compare.h"
-
 void CStore::Init()
 {
 	CRegistInfo* pRegi = nullptr;
@@ -14,43 +13,43 @@ void CStore::Init()
 	for (int i = 0; i < RAND10+10; i++)
 	{
 		pRegi = new CRegistInfo(RAND100000, "용석");
-		pObj = new CWeapon(ITEM_A_TYPE::WEAPON, ITEM_B_TYPE::WEAPON_DARKKNIGHT, ITEM_C_TYPE::WEAPON_DARKKNIGHT_KNIFE, 
-			"폭열 광검", RAND100, RAND10, RAND10, RARITY::RARE, pRegi);
+		pObj = new CWeapon(ITEM_A_TYPE::WEAPON, (ITEM_B_TYPE)(rand()%(int)ITEM_B_TYPE::END), ITEM_C_TYPE::WEAPON_DARKKNIGHT_KNIFE,
+			"폭열 광검"+ to_string(i), RAND100, RAND10, RAND10, RARITY::RARE, ITEM_TYPE::EQUIP, pRegi);
 		m_vItemLst.emplace_back(pObj);
 	}
 	for (int i = 0; i < RAND10 + 10; i++)
 	{
 		pRegi = new CRegistInfo(RAND100000, "용석");
 		pObj = new CWeapon(ITEM_A_TYPE::WEAPON, ITEM_B_TYPE::WEAPON_DARKKNIGHT, ITEM_C_TYPE::WEAPON_DARKKNIGHT_SWORD, 
-			"오키드", RAND10+55, RAND10, RAND10, RARITY::UNIQ, pRegi);
+			"오키드", RAND10+55, RAND10, RAND10, RARITY::UNIQ, ITEM_TYPE::EQUIP, pRegi);
 		m_vItemLst.emplace_back(pObj);
 	}
 	for (int i = 0; i < RAND10 + 10; i++)
 	{
 		pRegi = new CRegistInfo(RAND100000, "용석");
 		pObj = new CArmor(ITEM_A_TYPE::ARMOR, ITEM_B_TYPE::ARMOR_LEATHER, ITEM_C_TYPE::ARMOR_LEATHER_SHIRT, 
-			"전장의 매", RAND100, RAND10, RAND10, RARITY::REGENDARY, pRegi);
+			"전장의 매", RAND100, RAND10, RAND10, RARITY::REGENDARY, ITEM_TYPE::EQUIP, pRegi);
 		m_vItemLst.emplace_back(pObj);
 	}
 	for (int i = 0; i < RAND10 + 10; i++)
 	{
 		pRegi = new CRegistInfo(RAND100000, "용석");
 		pObj = new CArmor(ITEM_A_TYPE::ARMOR, ITEM_B_TYPE::ARMOR_LEATHER, ITEM_C_TYPE::ARMOR_LEATHER_SHOES, 
-			"스쿼드 튜닉", RAND100, RAND10, RAND10, RARITY::RARE, pRegi);
+			"스쿼드 튜닉", RAND100, RAND10, RAND10, RARITY::RARE, ITEM_TYPE::EQUIP, pRegi);
 		m_vItemLst.emplace_back(pObj);
 	}
 	for (int i = 0; i < RAND10 + 10; i++)
 	{
 		pRegi = new CRegistInfo(RAND100000, "용석");
 		pObj = new CAcc(ITEM_A_TYPE::ACC, ITEM_B_TYPE::ACC_NECK, 
-			"왕가의 목걸이", RAND100, RAND10, RAND10, RARITY::UNIQ, pRegi);
+			"왕가의 목걸이", RAND100, RAND10, RAND10, RARITY::UNIQ, ITEM_TYPE::EQUIP, pRegi);
 		m_vItemLst.emplace_back(pObj);
 	}
 	for (int i = 0; i < RAND10 + 10; i++)
 	{
 		pRegi = new CRegistInfo(RAND100000, "용석");
 		pObj = new CAcc(ITEM_A_TYPE::ACC, ITEM_B_TYPE::ACC_NECK,
-			"빛바랜 반지", RAND100, RAND10, RAND10, RARITY::COM, pRegi);
+			"빛바랜 반지", RAND100, RAND10, RAND10, RARITY::COM, ITEM_TYPE::EQUIP, pRegi);
 		m_vItemLst.emplace_back(pObj);
 	}
 	
@@ -64,7 +63,7 @@ void CStore::SearchName(const string& name, const uint16_t& minLv, const uint16_
 	cout << "-------------------------------------------------------------------------" << endl;
 	cout << "이름으로 검색" << endl;
 	cout << "-------------------------------------------------------------------------" << endl;
-	cout << "강화\t재련\t이름\tLv\t마감\t가격\t판매자" << endl;
+	cout << "강화\t재련\t" << left << setw(15) << "이름" << "Lv\t마감\t가격\t판매자" << endl;
 	cout << "-------------------------------------------------------------------------" << endl;
 	for (auto& obj : m_vItemLst)
 	{
@@ -82,7 +81,7 @@ void CStore::Search_Atype(const ITEM_A_TYPE& a)
 	cout << "-------------------------------------------------------------------------" << endl;
 	cout << "A타입으로 검색" << endl;
 	cout << "-------------------------------------------------------------------------" << endl;
-	cout << "강화\t재련\t이름\tLv\t마감\t가격\t판매자" << endl;
+	cout << "강화\t재련\t" << left << setw(15) << "이름" << "Lv\t마감\t가격\t판매자" << endl;
 	cout << "-------------------------------------------------------------------------" << endl;
 	for (auto& obj : m_vItemLst)
 	{
@@ -97,7 +96,7 @@ void CStore::Search_Btype(const ITEM_A_TYPE& a, const ITEM_B_TYPE& b)
 	cout << "-------------------------------------------------------------------------" << endl;
 	cout << "B타입으로 검색" << endl;
 	cout << "-------------------------------------------------------------------------" << endl;
-	cout << "강화\t재련\t이름\tLv\t마감\t가격\t판매자" << endl;
+	cout << "강화\t재련\t" << left << setw(15) << "이름" << "Lv\t마감\t가격\t판매자" << endl;
 	cout << "-------------------------------------------------------------------------" << endl;
 
 	for (auto& obj : m_vItemLst)
@@ -113,7 +112,7 @@ void CStore::Search_Ctype(const ITEM_A_TYPE& a, const ITEM_B_TYPE& b, const ITEM
 	cout << "-------------------------------------------------------------------------" << endl;
 	cout << "C타입으로 검색" << endl;
 	cout << "-------------------------------------------------------------------------" << endl;
-	cout << "강화\t재련\t이름\tLv\t마감\t가격\t판매자" << endl;
+	cout << "강화\t재련\t"<< left << setw(15) << "이름"<<	"Lv\t마감\t가격\t판매자" << endl;
 	cout << "-------------------------------------------------------------------------" << endl;
 	switch (c)
 	{
@@ -168,7 +167,7 @@ void CStore::Sorting_IDLE()
 	sort(m_vItemLst.begin(), m_vItemLst.end(), Cmp_IDLE);
 }
 
-void CStore::AscSorting()
+void CStore::AscSorting()	// sorting 묶을 방법있나?
 {
 	switch (m_eCurSortingType)
 	{
@@ -235,9 +234,19 @@ void CStore::ReadySorting(const SORTING_TYPE& type)
 
 void CStore::Print(CItem* item)
 {
+	switch (item->GetItemType())
+	{
+	case ITEM_TYPE::EQUIP:
+		cout << dynamic_cast<CEquipmentItem*>(item)->GetEnhance() << "\t" << 
+			dynamic_cast<CEquipmentItem*>(item)->GetSmelting() << "\t" ;
+		break;
+	case ITEM_TYPE::EXPENDABLE:
+		break;
+	default:
+		break;
+	}
 
-	cout << item->GetEnhance() << "\t" << item->GetSmelting() << "\t" << item->GetName() << "\t"
-		<< item->GetLevel() << "\t" << item->GetRegistInfo()->GetTimeCount() << "\t"
+	cout<< left << setw(15) << item->GetName() << item->GetLevel() << "\t" << item->GetRegistInfo()->GetTimeCount() << "\t"
 		<< item->GetRegistInfo()->GetPrice() << "\t" << item->GetRegistInfo()->GetRegisterName() << endl << endl;
 }
 
@@ -246,13 +255,23 @@ void CStore::PrintALL()
 	cout << "-------------------------------------------------------------------------" << endl;
 	cout << "전체 검색" << endl;
 	cout << "-------------------------------------------------------------------------" << endl;
-	cout << "강화\t재련\t이름\tLv\t마감\t가격\t판매자" << endl;
+	cout << "강화\t재련\t" << left << setw(15) << "이름" << "Lv\t마감\t가격\t판매자" << endl;
 	cout << "-------------------------------------------------------------------------" << endl;
 	for (auto& item : m_vItemLst)
 	{
-		cout << item->GetEnhance() << "\t" << item->GetSmelting() << "\t" << item->GetName() << "\t"
-			<< item->GetLevel() << "\t" << item->GetRegistInfo()->GetTimeCount() << "\t"
-			<< item->GetRegistInfo()->GetPrice() << "\t" << item->GetRegistInfo()->GetRegisterName()<<endl;
+		switch (item->GetItemType())
+		{
+		case ITEM_TYPE::EQUIP:
+			cout << dynamic_cast<CEquipmentItem*>(item)->GetEnhance() << "\t" <<
+				dynamic_cast<CEquipmentItem*>(item)->GetSmelting() << "\t";
+			break;
+		case ITEM_TYPE::EXPENDABLE:
+			break;
+		default:
+			break;
+		}
+		cout << left << setw(15)<< item->GetName() <<  item->GetLevel() << "\t" << item->GetRegistInfo()->GetTimeCount() << "\t"
+			<< item->GetRegistInfo()->GetPrice() << "\t" << item->GetRegistInfo()->GetRegisterName() << endl;
 	}
 	cout << endl;
 }
