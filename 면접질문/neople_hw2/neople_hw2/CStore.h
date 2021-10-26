@@ -14,6 +14,7 @@ public:
 
 	// °Ë»ö
 	void SearchName(const string& name, const uint16_t& minLv, const uint16_t& maxLv, const RARITY& rarity);
+	void Search_ExpendableItems();
 	void Search_Atype(const ITEM_A_TYPE& a);
 	void Search_Btype(const ITEM_A_TYPE& a, const ITEM_B_TYPE& b);
 	void Search_Ctype(const ITEM_A_TYPE& a, const ITEM_B_TYPE& b, const ITEM_C_TYPE& c);
