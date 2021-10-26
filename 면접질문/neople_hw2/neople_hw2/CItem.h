@@ -2,7 +2,6 @@
 class CRegistInfo
 {
 public:
-	CRegistInfo() {};
 	CRegistInfo(const uint32_t& price, const string& name)
 	{
 		m_sRegisterName = name; m_uiPrice = price;
@@ -20,25 +19,23 @@ class CItem
 {
 public:
 	CItem() {}
-	CItem(const ITEM_A_TYPE& itemAType, const ITEM_B_TYPE& itemBType, const string& name, const uint16_t& level,/* const uint16_t& en, const uint16_t& sm,*/ const RARITY& r, CRegistInfo* regi)
-	{
-		m_eItemAType = itemAType, m_eItemBType = itemBType, m_usLevel = level, m_sName = name;/* m_usEnhance = en, m_usSmelting = sm;*/ m_eRarity = r;
-		m_pRegisterInfo = regi;
-	}
+
+
 	virtual ~CItem() { }
 public:
 	uint16_t		GetItemTypeID() { return m_itemTypeID; }
-
+	uint16_t		GetEnhance()	{ return m_usEnhance; }
+	uint16_t		GetSmelting()	{ return m_usSmelting; }
 	uint16_t		GetLevel()		{ return m_usLevel; }
 	string			GetName()		{ return m_sName; }
 	CRegistInfo*	GetRegistInfo() { return m_pRegisterInfo; }
 	RARITY			GetRarity()		{ return m_eRarity; }
 	ITEM_TYPE		GetItemType()	{ return m_eItemType; }
-	ITEM_A_TYPE		GetItemAType()	{ return m_eItemAType; }
-	ITEM_B_TYPE		GetItemBType()	{ return m_eItemBType; }
+
 protected:
 	uint16_t	m_itemTypeID;
-
+	uint16_t	m_usEnhance = 0;
+	uint16_t	m_usSmelting = 0;
 	uint16_t	m_usLevel;
 
 	string		m_sName;
@@ -46,8 +43,7 @@ protected:
 	RARITY		m_eRarity;
 
 	ITEM_TYPE	m_eItemType;
-	ITEM_A_TYPE	m_eItemAType;
-	ITEM_B_TYPE	m_eItemBType;
+
 
 	CRegistInfo* m_pRegisterInfo = nullptr;
 
