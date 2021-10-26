@@ -6,8 +6,20 @@
 
 CInventory::CInventory()
 {
-	for(int i = 0;i<MAX_LAYER;++i)
+	for (int i = 0; i < MAX_LAYER; ++i)
+	{
 		m_vItemLst[i].resize(SLOT_IDLE);
+		m_vItemLst[i].reserve(SLOT_ADD1);
+	}
+}
+
+void CInventory::InventorySizeUp()
+{
+	for (int i = 0; i < MAX_LAYER; ++i)
+	{
+		for (int i = 0; i < SLOT_SIZEUP8; ++i)
+			m_vItemLst[i].emplace_back(nullptr);
+	}
 }
 
 void CInventory::InitItem(CItem* item, const uint16_t& addCount)

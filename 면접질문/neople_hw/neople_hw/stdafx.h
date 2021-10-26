@@ -15,7 +15,7 @@ using namespace std;
 
 #define SLOT_IDLE 48
 #define SLOT_ADD1 56
-#define SLOT_ADD2 64
+#define SLOT_SIZEUP8 64
 
 
 enum class INVEN_TYPE

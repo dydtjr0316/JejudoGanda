@@ -28,6 +28,7 @@ private:
 
 
 public:
+	void InventorySizeUp()
 	void InitItem		(CItem* item, const uint16_t& addCount = 1);
 	void DeleteItem		(const uint16_t& itemid, const uint16_t& deleteCount = 1);
 	void PrintAll		();
