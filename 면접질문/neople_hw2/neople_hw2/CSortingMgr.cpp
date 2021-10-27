@@ -4,10 +4,10 @@
 
 bool CSortingMgr::Cmp_IDLE(CItem* a, CItem* b)
 {
-	//uint16_t a_Enhance = a->GetEnhance();
-	//uint16_t b_Enhance = b->GetEnhance();
-	//uint16_t a_Smelting = a->GetSmelting();
-	//uint16_t b_Smelting = b->GetSmelting();
+	//uShort a_Enhance = a->GetEnhance();
+	//uShort b_Enhance = b->GetEnhance();
+	//uShort a_Smelting = a->GetSmelting();
+	//uShort b_Smelting = b->GetSmelting();
 
 	//if (a_Enhance == b_Enhance)
 	//{
