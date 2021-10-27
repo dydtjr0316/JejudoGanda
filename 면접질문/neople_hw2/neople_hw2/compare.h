@@ -4,14 +4,14 @@
 
 bool Cmp_IDLE(CItem* a, CItem* b)
 {
-	uint16_t a_Enhance = a->GetEnhance();				
-	uint16_t b_Enhance = b->GetEnhance();
-	uint16_t a_Smelting = a->GetSmelting();				
-	uint16_t b_Smelting = b->GetSmelting();
-	uint32_t a_price = a->GetRegistInfo()->GetPrice();	
-	uint32_t b_price = b->GetRegistInfo()->GetPrice();
-	uint32_t a_dateLimit = b->GetRegistInfo()->GetTimeCount();
-	uint32_t b_dateLimit = b->GetRegistInfo()->GetTimeCount();
+	uShort a_Enhance = a->GetEnhance();				
+	uShort b_Enhance = b->GetEnhance();
+	uShort a_Smelting = a->GetSmelting();				
+	uShort b_Smelting = b->GetSmelting();
+	uInt a_price = a->GetRegistInfo()->GetPrice();	
+	uInt b_price = b->GetRegistInfo()->GetPrice();
+	uInt a_dateLimit = b->GetRegistInfo()->GetTimeCount();
+	uInt b_dateLimit = b->GetRegistInfo()->GetTimeCount();
 
 	if (a_Enhance == b_Enhance)
 	{

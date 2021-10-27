@@ -13,6 +13,9 @@
 using namespace std;
 using namespace std::chrono;
 
+typedef unsigned short uShort;
+typedef unsigned int uInt;
+
 #define RAND100000 rand()%100000
 #define RAND100 rand()%100
 #define RAND10 rand()%10
