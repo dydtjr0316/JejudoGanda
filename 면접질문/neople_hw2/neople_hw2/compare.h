@@ -34,7 +34,6 @@ bool Cmp_IDLE(CItem* a, CItem* b)
 bool Cmp_Enhance_ASC(CItem* a, CItem* b)
 {
 	return a->GetEnhance() < b->GetEnhance();
-	return false;
 }
 bool Cmp_Enhance_DESC(CItem* a, CItem* b)
 {

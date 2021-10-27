@@ -1,7 +1,5 @@
 #pragma once
-// 인벤토리 종류 -> 해당 인벤토리 내에서의 유니크한 아이템의 아이디 -> 해당 아이템의 슬롯 아이디
 class CItem;
-typedef uShort ID;
 class CInventory
 {
 public:
@@ -16,7 +14,6 @@ private:
 	float		m_fInvenWeight = 0.f;			// 무게
 	float		m_fMaxInvenWeight = 45.f;		// 무게 한도 // 여기 일단 대충 최대치 넣어놓기
 
-	//  이거 없어도되는가?
 	uShort	m_usCoin = 0;					// 코인
 	uShort	m_usVictoryToken = 0;			// 승리의 증표
 	uInt	m_uiGold = 0 ;					// 골드
@@ -25,10 +22,7 @@ private:
 
 	uShort	m_usCurItemCount = 0;			// 아이템 갯수
 	uShort	m_usMaxSlotSize = SLOT_IDLE;	// 슬롯최대갯수
-
-
 public:
-
 	void InventorySizeUp();
 	void InitItem		(CItem* item, const uShort & addCount = 1);
 	void DeleteItem		(const uShort& itemid, const uShort& deleteCount = 1);

@@ -59,7 +59,7 @@ void CStore::Init()
 
 }
 
-void CStore::SearchName(const string& name, const uint16_t& minLv, const uint16_t& maxLv, const RARITY& rarity)
+void CStore::SearchName(const string& name, const uShort& minLv, const uShort& maxLv, const RARITY& rarity)
 {
 	cout << "-------------------------------------------------------------------------" << endl;
 	cout << "이름, 레벨, 타입 검색" << endl;
@@ -189,7 +189,7 @@ void CStore::Sorting_IDLE()
 	sort(m_vItemLst.begin(), m_vItemLst.end(), Cmp_IDLE);
 }
 
-void CStore::AscSorting()	// sorting 묶을 방법있나?
+void CStore::AscSorting()	
 {
 	switch (m_eCurSortingType)
 	{

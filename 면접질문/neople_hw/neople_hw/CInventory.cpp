@@ -8,8 +8,8 @@ CInventory::CInventory()
 {
 	for (int i = 0; i < MAX_LAYER; ++i)
 	{
-		m_vItemLst[i].resize(SLOT_IDLE);
-		m_vItemLst[i].reserve(SLOT_ADD1);
+		m_vItemLst[i].resize(SLOT_IDLE);	//48
+		m_vItemLst[i].reserve(SLOT_ADD1);	//56
 	}
 }
 
@@ -50,7 +50,8 @@ void CInventory::InitItem(CItem* item, const uShort& addCount)
 		{
 			for (uInt index = 0; index < m_usMaxSlotSize; ++index)
 			{
-				if (m_vItemLst[(uInt)eItemType][index] != nullptr && m_vItemLst[(uInt)eItemType][index]->GetName() == item->GetName())
+				if (m_vItemLst[(uInt)eItemType][index] != nullptr && 
+					m_vItemLst[(uInt)eItemType][index]->GetName() == item->GetName())
 				{
 					bisExist = true;
 					existIndex = index;
@@ -59,8 +60,11 @@ void CInventory::InitItem(CItem* item, const uShort& addCount)
 			}
 			if (bisExist)
 			{
-				uShort count = dynamic_cast<CExpendablItem*>(m_vItemLst[(uInt)eItemType][existIndex])->GetItemCount() + addCount;
-				dynamic_cast<CExpendablItem*>(m_vItemLst[(uInt)eItemType][existIndex])->SetItemCount(count);
+				uShort count = dynamic_cast<CExpendablItem*>
+					(m_vItemLst[(uInt)eItemType][existIndex])->GetItemCount() + addCount;
+
+				dynamic_cast<CExpendablItem*>
+					(m_vItemLst[(uInt)eItemType][existIndex])->SetItemCount(count);
 			}
 			else
 			{
@@ -79,39 +83,34 @@ void CInventory::InitItem(CItem* item, const uShort& addCount)
 	}
 	m_fInvenWeight = ResultWeight;
 	++m_usCurItemCount;
-	
 }
 
 void CInventory::DeleteItem(const uShort& slotindex, const uShort& deleteCount)
-// item으로 delete해야되는 경우 있는지 찾아보기
-// 갯수로 삭제 넣기
 {
-	// 이 아이템 코드 nullptr 만드는 코드
-	INVEN_TYPE eItemType = m_vItemLst[(uInt)m_eCurInvenType][slotindex]->GetType();
 	float ResultWeight = m_fInvenWeight + m_vItemLst[(uInt)m_eCurInvenType][slotindex]->GetWeight();
-	m_fInvenWeight -= m_vItemLst[(uInt)m_eCurInvenType][slotindex]->GetWeight();
+	m_fInvenWeight -= (m_vItemLst[(uInt)m_eCurInvenType][slotindex]->GetWeight() * deleteCount);
 
 	switch (m_eCurInvenType)
 	{
 	case INVEN_TYPE::EQUIPMENT:
+		--m_usCurItemCount; 
 		m_vItemLst[(uInt)m_eCurInvenType][slotindex] = nullptr;
-		--m_usCurItemCount;
 		break;
 	case INVEN_TYPE::EXPENDABLES:
-		CExpendablItem* expendableiTem = dynamic_cast<CExpendablItem*>(m_vItemLst[(short)m_eCurInvenType][slotindex]);
+	{
+		CExpendablItem* expendableiTem =
+			dynamic_cast<CExpendablItem*>(m_vItemLst[(short)m_eCurInvenType][slotindex]);
+
 		if (expendableiTem->GetItemCount() - deleteCount > 0)
-		{	// 갯수만큼 빼도 0보다 클때
 			expendableiTem->SetItemCount(expendableiTem->GetItemCount() - deleteCount);
-		}
 		else// 0이될때
 		{
+			--m_usCurItemCount;
 			m_vItemLst[(uInt)m_eCurInvenType][slotindex] = nullptr;
-			--m_usCurItemCount;	// 이부분 상황봐서 합쳐버리기
 		}
-	
-		break;
 	}
-
+	break;
+	}
 }
 
 void CInventory::PrintAll()
