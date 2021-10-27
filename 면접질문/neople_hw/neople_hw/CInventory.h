@@ -28,7 +28,9 @@ private:
 
 
 public:
-	void InitItem		(CItem* item, const uShort& addCount = 1);
+
+	void InventorySizeUp();
+	void InitItem		(CItem* item, const uShort & addCount = 1);
 	void DeleteItem		(const uShort& itemid, const uShort& deleteCount = 1);
 	void PrintAll		();
 };

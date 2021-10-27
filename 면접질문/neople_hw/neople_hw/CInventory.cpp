@@ -6,9 +6,19 @@
 
 CInventory::CInventory()
 {
-	for (uInt i = 0; i < MAX_LAYER; ++i)
+	for (int i = 0; i < MAX_LAYER; ++i)
 	{
 		m_vItemLst[i].resize(SLOT_IDLE);
+		m_vItemLst[i].reserve(SLOT_ADD1);
+	}
+}
+
+void CInventory::InventorySizeUp()
+{
+	for (int i = 0; i < MAX_LAYER; ++i)
+	{
+		for (int j = 0; j < SLOT_SIZEUP8; ++j)
+			m_vItemLst[i].emplace_back(nullptr);
 	}
 }
 
