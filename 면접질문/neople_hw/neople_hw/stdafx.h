@@ -17,19 +17,25 @@ using namespace std;
 #define SLOT_ADD1 56
 #define SLOT_ADD2 64
 
+typedef unsigned short uShort;
+typedef unsigned int uInt;
+
 
 enum class INVEN_TYPE
 {
+	IDLE,
 	EQUIPMENT,		//장	비
 	EXPENDABLES,	//소모품
 	MATERIAL,		//재료
 	SPECIAL,		//전문재료
 	QUEST,			//퀘스트
+	END
 };
 
 enum EQUIP
 {
-	HEADNSHOULDER,		
+	IDLE,
+	HEADNSHOULDER,
 	TOP,				
 	PANTS,				
 	BELT,				
@@ -41,10 +47,11 @@ enum EQUIP
 	SUB,
 	RING,
 	EARRING,
-	MAGINSTONE
+	MAGINSTONE,
+	END
 };
 
-enum class EXCHANGE_TYPE{IDLE, UNEXC, UNEXC_DEL, ATTRIBUTION };
-enum class RARITY_TYPE{COM, UNCOM, RARE, UNIQ, REGEND, EPIC};
-enum class EQUIPMENT_TYPE { A,B,C,D,E }; 
-enum class OCCUPATION_TYPE{A,B,C,D,E,F,G };
+enum class EXCHANGE_TYPE{IDLE, UNEXC, UNEXC_DEL, ATTRIBUTION, END};
+enum class RARITY_TYPE{ IDLE, COM, UNCOM, RARE, UNIQ, REGEND, EPIC, END};
+enum class EQUIPMENT_TYPE { IDLE, A,B,C,D,E, END};
+enum class OCCUPATION_TYPE{ IDLE, A,B,C,D,E,F,G , END};

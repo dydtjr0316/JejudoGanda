@@ -12,4 +12,7 @@ int main()
 	store.Search_Atype(ITEM_A_TYPE::ACC);
 	store.Search_Btype(ITEM_A_TYPE::ARMOR, ITEM_B_TYPE::ARMOR_LEATHER);
 	store.Search_Ctype(ITEM_A_TYPE::WEAPON, ITEM_B_TYPE::WEAPON_DARKKNIGHT, ITEM_C_TYPE::WEAPON_DARKKNIGHT_KNIFE);
+
+	store.Sorting(SORTING_TYPE::Price);
+	store.PrintALL();
 }

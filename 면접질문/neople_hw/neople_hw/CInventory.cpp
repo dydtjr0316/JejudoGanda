@@ -6,41 +6,39 @@
 
 CInventory::CInventory()
 {
-	for(int i = 0;i<MAX_LAYER;++i)
+	for(uInt i = 0;i<MAX_LAYER;++i)
 		m_vItemLst[i].resize(SLOT_IDLE);
 }
 
-void CInventory::InitItem(CItem* item, const uint16_t& addCount)
+void CInventory::InitItem(CItem* item, const uShort& addCount)
 {
 	INVEN_TYPE eItemType = item->GetType();
 	float ResultWeight = m_fInvenWeight + item->GetWeight();
-	// 이렇게 선언해놓고 쓰는거 어떤지 
+
 	switch (eItemType)
 	{
 	case INVEN_TYPE::EQUIPMENT:
 		if (m_usMaxSlotSize > m_usCurItemCount && m_fMaxInvenWeight >= ResultWeight)
 		{
-			for (int index = 0; index < m_usMaxSlotSize; ++index)
+			for (uInt index = 0; index < m_usMaxSlotSize; ++index)
 			{
 				// 형변환 short로 하는거 어떤지 물어보기 
-				if (m_vItemLst[(uint32_t)eItemType][index] == nullptr)
+				if (m_vItemLst[(uInt)eItemType][index] == nullptr)
 				{
-					m_vItemLst[(uint32_t)eItemType][index] = item;
+					m_vItemLst[(uInt)eItemType][index] = item;
 					break;
 				}
 			}
-			m_fInvenWeight = ResultWeight;
-			++m_usCurItemCount;
 		}
 		break;
 	case INVEN_TYPE::EXPENDABLES:
 		bool bisExist = false;
-		int16_t existIndex = 0;
+		uShort existIndex = 0;
 		if (m_usMaxSlotSize > m_usCurItemCount && m_fMaxInvenWeight >= ResultWeight)
 		{
-			for (int index = 0; index < m_usMaxSlotSize; ++index)
+			for (uInt index = 0; index < m_usMaxSlotSize; ++index)
 			{
-				if (m_vItemLst[(uint32_t)eItemType][index]!=nullptr&&m_vItemLst[(uint32_t)eItemType][index]->GetName() == item->GetName())
+				if (m_vItemLst[(uInt)eItemType][index] != nullptr && m_vItemLst[(uInt)eItemType][index]->GetName() == item->GetName())
 				{
 					bisExist = true;
 					existIndex = index;
@@ -49,43 +47,42 @@ void CInventory::InitItem(CItem* item, const uint16_t& addCount)
 			}
 			if (bisExist)
 			{
-				int16_t count = dynamic_cast<CExpendablItem*>(m_vItemLst[(uint32_t)eItemType][existIndex])->GetItemCount()+ addCount;
-				dynamic_cast<CExpendablItem*>(m_vItemLst[(uint32_t)eItemType][existIndex])->SetItemCount(count);
+				uShort count = dynamic_cast<CExpendablItem*>(m_vItemLst[(uInt)eItemType][existIndex])->GetItemCount() + addCount;
+				dynamic_cast<CExpendablItem*>(m_vItemLst[(uInt)eItemType][existIndex])->SetItemCount(count);
 			}
 			else
 			{
-				for (int index = 0; index < m_usMaxSlotSize; ++index)
+				for (uInt index = 0; index < m_usMaxSlotSize; ++index)
 				{
 					// 형변환 short로 하는거 어떤지 물어보기 
-					if (m_vItemLst[(uint32_t)eItemType][index] == nullptr)
+					if (m_vItemLst[(uInt)eItemType][index] == nullptr)
 					{
-						m_vItemLst[(uint32_t)eItemType][index] = item;
+						m_vItemLst[(uInt)eItemType][index] = item;
 						break;
 					}
 				}
-				m_fInvenWeight = ResultWeight;
-				++m_usCurItemCount;
 			}
 		}
 		break;
 	}
-	
+	m_fInvenWeight = ResultWeight;
+	++m_usCurItemCount;
 	
 }
 
-void CInventory::DeleteItem(const uint16_t& slotindex, const uint16_t& deleteCount)
+void CInventory::DeleteItem(const uShort& slotindex, const uShort& deleteCount)
 // item으로 delete해야되는 경우 있는지 찾아보기
 // 갯수로 삭제 넣기
 {
 	// 이 아이템 코드 nullptr 만드는 코드
-	INVEN_TYPE eItemType = m_vItemLst[(uint32_t)m_eCurInvenType][slotindex]->GetType();
-	float ResultWeight = m_fInvenWeight + m_vItemLst[(uint32_t)m_eCurInvenType][slotindex]->GetWeight();
-	m_fInvenWeight -= m_vItemLst[(uint32_t)m_eCurInvenType][slotindex]->GetWeight();
+	INVEN_TYPE eItemType = m_vItemLst[(uInt)m_eCurInvenType][slotindex]->GetType();
+	float ResultWeight = m_fInvenWeight + m_vItemLst[(uInt)m_eCurInvenType][slotindex]->GetWeight();
+	m_fInvenWeight -= m_vItemLst[(uInt)m_eCurInvenType][slotindex]->GetWeight();
 
 	switch (m_eCurInvenType)
 	{
 	case INVEN_TYPE::EQUIPMENT:
-		m_vItemLst[(uint32_t)m_eCurInvenType][slotindex] = nullptr;
+		m_vItemLst[(uInt)m_eCurInvenType][slotindex] = nullptr;
 		--m_usCurItemCount;
 		break;
 	case INVEN_TYPE::EXPENDABLES:
@@ -96,7 +93,7 @@ void CInventory::DeleteItem(const uint16_t& slotindex, const uint16_t& deleteCou
 		}
 		else// 0이될때
 		{
-			m_vItemLst[(uint32_t)m_eCurInvenType][slotindex] = nullptr;
+			m_vItemLst[(uInt)m_eCurInvenType][slotindex] = nullptr;
 			--m_usCurItemCount;	// 이부분 상황봐서 합쳐버리기
 		}
 	
@@ -107,7 +104,7 @@ void CInventory::DeleteItem(const uint16_t& slotindex, const uint16_t& deleteCou
 
 void CInventory::PrintAll()
 {
-	for (int i = 0; i < 2; ++i)
+	for (uInt i = 0; i < 2; ++i)
 	{
 		cout << "-------------------------------" << endl;
 		switch (i)

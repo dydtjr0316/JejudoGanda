@@ -7,9 +7,9 @@ public:
 		m_sRegisterName = name; m_uiPrice = price;
 	};
 private:
-	string		m_sRegisterName;
-	uint32_t	m_uiPrice;
-	uint16_t	m_usTimeCount = 24;
+	string		m_sRegisterName = "";
+	uint32_t	m_uiPrice = 0;
+	uint16_t	m_usTimeCount = 24;	// CHAR써도되지않나? 신영
 public:
 	uint16_t	GetTimeCount() { return m_usTimeCount; }
 	uint32_t	GetPrice() { return m_uiPrice; }
@@ -19,8 +19,6 @@ class CItem
 {
 public:
 	CItem() {}
-
-
 	virtual ~CItem() { }
 public:
 	uint16_t		GetItemTypeID() { return m_itemTypeID; }
@@ -33,16 +31,16 @@ public:
 	ITEM_TYPE		GetItemType()	{ return m_eItemType; }
 
 protected:
-	uint16_t	m_itemTypeID;
+	uint16_t	m_itemTypeID = 0;
 	uint16_t	m_usEnhance = 0;
 	uint16_t	m_usSmelting = 0;
-	uint16_t	m_usLevel;
+	uint16_t	m_usLevel = 0;
 
-	string		m_sName;
+	string		m_sName = "";
 
-	RARITY		m_eRarity;
+	RARITY		m_eRarity = RARITY::IDLE;
 
-	ITEM_TYPE	m_eItemType;
+	ITEM_TYPE	m_eItemType = ITEM_TYPE::IDLE;
 
 
 	CRegistInfo* m_pRegisterInfo = nullptr;

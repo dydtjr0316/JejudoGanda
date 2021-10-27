@@ -18,11 +18,12 @@ using namespace std::chrono;
 #define RAND10 rand()%10
 enum class ITEM_TYPE
 {
-	EQUIP,EXPENDABLE, END
+	IDLE, EQUIP,EXPENDABLE, END
 };
 
 enum class ITEM_A_TYPE
 {
+	IDLE,
 	WEAPON, 
 	ARMOR, 
 	ACC,
@@ -30,6 +31,8 @@ enum class ITEM_A_TYPE
 };
 enum class ITEM_B_TYPE
 {
+	IDLE,
+
 	WEAPON_DARKKNIGHT,
 
 	ARMOR_LEATHER,
@@ -40,6 +43,7 @@ enum class ITEM_B_TYPE
 };
 enum class ITEM_C_TYPE
 {
+	IDLE,
 	WEAPON_DARKKNIGHT_SWORD, WEAPON_DARKKNIGHT_KNIFE,
 
 	ARMOR_LEATHER_SHIRT, ARMOR_LEATHER_SHOES,
@@ -48,13 +52,13 @@ enum class ITEM_C_TYPE
 };
 enum class RARITY
 {
-	ENTIRE, COM, UNCOM, RARE, UNIQ, REGENDARY, EPIC, END
+	IDLE,ENTIRE, COM, UNCOM, RARE, UNIQ, REGENDARY, EPIC, END
 };
 enum class SORTING_TYPE
 {
-	ENHANCE, SMELTING, NAME, LV, TIMECOUNT, Price, IDLE,  END
+	IDLE, ENHANCE, SMELTING, NAME, LV, TIMECOUNT, Price,  END
 };
 enum class SORTING_ORDER
 {
-	IDLE, ASC/*오름*/, DESC/*내림*/
+	IDLE, ASC/*오름*/, DESC/*내림*/, END
 };

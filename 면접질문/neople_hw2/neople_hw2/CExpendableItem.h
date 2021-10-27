@@ -11,6 +11,6 @@ public:
     ~CExpendableItem() {}
 
 private:
-    uint16_t m_usItemCount;
+    uint16_t m_usItemCount = 0;
 };
 

@@ -6,7 +6,7 @@ class CEquipmentItem :
 private:
     bool        m_bisEquip;             // 장착 여부
 
-    uint16_t    m_usEnhance;            // 강화
+    uShort    m_usEnhance;            // 강화
 
     EQUIPMENT_TYPE	m_eEquipmentType;	// 장비종류
     OCCUPATION_TYPE	m_eOccupationType;	// 장착가능 직업

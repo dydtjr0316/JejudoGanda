@@ -12,6 +12,7 @@ bool Cmp_IDLE(CItem* a, CItem* b)
 	uint32_t b_price = b->GetRegistInfo()->GetPrice();
 	uint32_t a_dateLimit = b->GetRegistInfo()->GetTimeCount();
 	uint32_t b_dateLimit = b->GetRegistInfo()->GetTimeCount();
+
 	if (a_Enhance == b_Enhance)
 	{
 		if (a_Smelting == b_Smelting)
