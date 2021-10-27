@@ -6,8 +6,10 @@
 
 CInventory::CInventory()
 {
-	for(uInt i = 0;i<MAX_LAYER;++i)
+	for (uInt i = 0; i < MAX_LAYER; ++i)
+	{
 		m_vItemLst[i].resize(SLOT_IDLE);
+	}
 }
 
 void CInventory::InitItem(CItem* item, const uShort& addCount)
@@ -104,12 +106,12 @@ void CInventory::DeleteItem(const uShort& slotindex, const uShort& deleteCount)
 
 void CInventory::PrintAll()
 {
-	for (uInt i = 0; i < 2; ++i)
+	for (uInt i = 1; i < 3; ++i)
 	{
 		cout << "-------------------------------" << endl;
 		switch (i)
 		{
-		case 0: cout << "장비" << endl;
+		case 1: cout << "장비" << endl;
 			cout << "-------------------------------" << endl;
 			cout <<left <<setw(15)<<"이름"<<"무게" << endl;
 			cout << "-------------------------------" << endl;
@@ -122,7 +124,7 @@ void CInventory::PrintAll()
 				}
 			}
 			break;
-		case 1: cout << "소모품" << endl;
+		case 2: cout << "소모품" << endl;
 			cout << "-------------------------------" << endl;
 			cout << left << setw(15) << "이름" << "개수\t무게" << endl;
 			cout << "-------------------------------" << endl;
