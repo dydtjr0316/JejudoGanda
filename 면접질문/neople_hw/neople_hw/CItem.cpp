@@ -16,3 +16,7 @@ CItem::CItem()
 	m_eType = INVEN_TYPE::IDLE;
 	m_eExchangeType = EXCHANGE_TYPE::IDLE; // 귀속 교불 등등
 }
+
+CItem::CItem()
+{
+}
