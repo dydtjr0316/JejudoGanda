@@ -10,6 +10,8 @@ vector<int> result;
 queue<int> q;
 int n, m, v;
 
+// dfs bfs 순회 순서 구하기
+
 void dfs(int idx)
 {
 	if (isVisieted[idx])return;

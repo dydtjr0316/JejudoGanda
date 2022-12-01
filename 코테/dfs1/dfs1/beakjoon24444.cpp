@@ -14,7 +14,7 @@ queue<int> q;
 int n, m, r;
 int a, b;
 int cnt = 0;
-
+// 너비우선
 void bfs(int idx)
 {
 	q.push(idx);

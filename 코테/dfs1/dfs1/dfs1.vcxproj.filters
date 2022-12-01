@@ -13,28 +13,61 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\dfs">
+      <UniqueIdentifier>{5c8fe5d7-f931-4c35-b7dd-8576fa54ed00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\bfs">
+      <UniqueIdentifier>{8f50d136-e99d-4965-87ee-681ee630b6b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\dp">
+      <UniqueIdentifier>{533afd65-2400-410a-8550-1cdeecdd17ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\ea">
+      <UniqueIdentifier>{7daf27d1-993d-40e7-a3cd-06698b72c1cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="바이러스.cpp">
+      <Filter>소스 파일\dfs</Filter>
     </ClCompile>
-    <ClCompile Include="baekjoon2606.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="유기농배추.cpp">
+      <Filter>소스 파일\bfs</Filter>
     </ClCompile>
     <ClCompile Include="beakjoon1260.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\dfs</Filter>
+    </ClCompile>
+    <ClCompile Include="미로탐색.cpp">
+      <Filter>소스 파일\bfs</Filter>
+    </ClCompile>
+    <ClCompile Include="단지나누기.cpp">
+      <Filter>소스 파일\bfs</Filter>
     </ClCompile>
     <ClCompile Include="beakjoon24444.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\bfs</Filter>
     </ClCompile>
-    <ClCompile Include="beakjoon2667.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일\dfs</Filter>
     </ClCompile>
-    <ClCompile Include="beakjoon1012.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="가장긴감소하는부분순열.cpp">
+      <Filter>소스 파일\dp</Filter>
     </ClCompile>
-    <ClCompile Include="beakjoon2178.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="파일합치기.cpp">
+      <Filter>소스 파일\dp</Filter>
+    </ClCompile>
+    <ClCompile Include="ea1.cpp">
+      <Filter>소스 파일\ea</Filter>
+    </ClCompile>
+    <ClCompile Include="ea2.cpp">
+      <Filter>소스 파일\ea</Filter>
+    </ClCompile>
+    <ClCompile Include="ea3.cpp">
+      <Filter>소스 파일\ea</Filter>
+    </ClCompile>
+    <ClCompile Include="ea4.cpp">
+      <Filter>소스 파일\ea</Filter>
+    </ClCompile>
+    <ClCompile Include="ea5.cpp">
+      <Filter>소스 파일\ea</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
